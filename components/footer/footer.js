@@ -4,6 +4,7 @@ import React from 'react';
 import {FaFacebookF, FaInstagram, FaYoutube, FaEnvelope} from 'react-icons/fa';
 import {IconContext} from 'react-icons';
 import Navlink from '../header/nav-link';
+import Link from '../link';
 
 const footerInner = {
   maxWidth: '1170px',
@@ -38,7 +39,7 @@ const Footer = ({data: {footermenu, tagline}}) => {
         </h4>
         <ul sx={list}>
           {footermenu.map(item => (
-            <Navlink key={item._key} link={item.pathname} text={item.text} />
+            <Navlink key={item._key} link={item.slug.current} text={item.text} />
           ))}
         </ul>
         <div sx={{padding: '20px 0'}}>

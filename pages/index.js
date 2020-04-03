@@ -5,6 +5,7 @@ import {Styled, Grid, Button, jsx} from 'theme-ui';
 import HomeGallery from '../components/home-gallery';
 import Parallax from '../components/parallax';
 import Layout from '../components/layout';
+import GhostButton from '../components/ghost-button';
 import StKilda from '../public/stkilda.jpg';
 import {mainQuery, menuQuery, footerQuery} from '../lib/queries';
 import {fetchQuery} from '../lib/sanity';
@@ -15,9 +16,16 @@ const Home = props => {
   const {heading, content, services} = mainData;
   return (
     <Layout {...props}>
-      <div sx={{background: `url(${urlFor(mainData.mainImage)})`, backgroundSize: 'cover'}}>
+      <div
+        sx={{
+          background: `url(${urlFor(mainData.mainImage)}) `,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
         <Grid
           sx={{
+            backgroundColor: 'rgba(0, 0, 0, .2)',
             gridTemplateColumns: '1fr 3fr 1fr',
             gridTemplateRows: '1fr 3fr 1fr',
             position: 'relative',
@@ -50,7 +58,9 @@ const Home = props => {
               {services.map(service => (
                 <div key={service.key}>
                   <Styled.h4>{service.address}</Styled.h4>
-                  <Button variant="home">{service.text}</Button>
+                  <GhostButton variant="home" link={service.slug.current}>
+                    {service.text}
+                  </GhostButton>
                 </div>
               ))}
             </Grid>

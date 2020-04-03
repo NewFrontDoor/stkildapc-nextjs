@@ -9,19 +9,39 @@ export default {
       color: 'accent'
     }
   },
+  home: {
+    display: 'inline-block',
+    fontFamily: 'body',
+    borderRadius: '3px',
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    borderColor: 'background',
+    fontSize: 16,
+    padding: '20px 40px',
+    width: 'fit-content',
+    minWidth: '250px',
+    margin: 'auto',
+    cursor: 'pointer',
+    color: 'background',
+    textDecoration: 'none',
+    '&:hover': {
+      bg: 'background',
+      color: 'text'
+    }
+  },
   ghost: {
     margin: 'auto',
     textDecoration: 'none',
     padding: '11px 23px',
     border: '2px solid',
-    borderColor: 'gold',
-    color: 'gold',
+    borderColor: 'alt',
+    color: 'alt',
     display: 'inline-block',
     width: 'fit-content',
     ':hover': {
-      borderColor: 'gold',
-      backgroundColor: 'gold',
-      color: 'red'
+      borderColor: 'alt',
+      backgroundColor: 'alt',
+      color: 'black'
     }
   },
   warning: {

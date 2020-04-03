@@ -13,6 +13,36 @@ import HomeCard from './home-card-grid-item';
 import Overlay from './overlay-grid-item';
 import PropTypes from 'prop-types';
 import {submitForm} from '../lib/sanity-fns';
+import getVideoId from 'get-video-id';
+import Vimeo from '@u-wave/react-vimeo';
+import Youtube from '@u-wave/react-youtube';
+
+const VideoSerializer = ({node}) => {
+  const {url} = node;
+  if (url) {
+    const video = getVideoId(url || null);
+
+    if (video.service === 'youtube') {
+      return (
+        <Youtube
+          modestBranding
+          annotations={false}
+          video={video.id}
+          height={360}
+          width={640}
+        />
+      );
+    }
+
+    if (video.service === 'vimeo') {
+      return <Vimeo showTitle={false} showByline={false} video={video.id} />;
+    }
+  }
+};
+
+VideoSerializer.propTypes = {
+  node: PropTypes.object.isRequired
+};
 
 const CustomStyleSerializer = ({children}) => {
   return <Styled.p>{children}</Styled.p>;
@@ -201,7 +231,8 @@ const BlockText = ({blocks}) => {
           gridblock: GridBlockSerializer,
           image: ImageSerializer,
           button: ButtonSerializer,
-          inlineButton: ButtonSerializer
+          inlineButton: ButtonSerializer,
+          videoEmbed: VideoSerializer
         },
         marks: {
           anchor: AnchorSerializer,

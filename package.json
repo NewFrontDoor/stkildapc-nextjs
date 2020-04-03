@@ -47,6 +47,8 @@
     "react-spring": "^8.0.27",
     "theme-ui": "^0.3.1",
     "typeface-abel": "^0.0.72",
+    "typeface-lato": "^0.0.75",
+    "typeface-open-sans": "^0.0.75",
     "typeface-vollkorn": "^0.0.72",
     "xmlbuilder": "^15.1.0"
   },

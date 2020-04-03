@@ -10,7 +10,7 @@ export default {
     minWidth: '250px',
     cursor: 'pointer',
     color: 'background',
-    bg: 'none',
+    backgroundColor: 'none',
     '&:hover': {
       bg: 'background',
       color: 'text'

@@ -1,7 +1,7 @@
 export default {
   fonts: {
-    body: '"Abel", system-ui, sans-serif',
-    heading: '"Vollkorn", serif',
+    body: '"Lato", system-ui, sans-serif',
+    heading: '"Open Sans", serif',
     monospace: 'Menlo, monospace'
   },
   fontWeights: {

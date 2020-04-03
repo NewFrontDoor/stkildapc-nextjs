@@ -2,7 +2,7 @@ export default {
   nav: {
     textDecoration: 'none',
     fontFamily: 'body',
-    color: 'body',
+    color: 'primary',
     textTransform: 'uppercase',
     cursor: 'pointer',
     '&:hover': {

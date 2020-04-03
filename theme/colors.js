@@ -1,7 +1,8 @@
 export default {
   text: '#231F20',
   background: '#fff',
-  primary: '#3D59AB',
-  link: '#B0C4DE',
-  none: 'none'
+  primary: '#00354e',
+  alt: '#8cb8bf',
+  accent: '#fbb034',
+  none: null
 };

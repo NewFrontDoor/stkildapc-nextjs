@@ -3,8 +3,8 @@ import React from 'react';
 import App from 'next/app';
 import {ThemeProvider, Styled} from 'theme-ui';
 import theme from '../theme';
-require('typeface-abel'); //eslint-disable-line
-require('typeface-vollkorn'); //eslint-disable-line
+require('typeface-lato'); //eslint-disable-line
+require('typeface-open-sans'); //eslint-disable-line
 
 class MyApp extends App {
   // Only uncomment this method if you have blocking data requirements for

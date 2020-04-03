@@ -16,7 +16,6 @@ const navSx = isOpen => ({
   top: '90px',
   left: '0px',
   padding: ['20px 50px 0 50px', 0],
-  backgroundColor: ['#63bc50CC', 'none'],
   color: ['text', 'inherit'],
   width: ['100vw', 'initial'],
   height: ['100vh', 'initial'],

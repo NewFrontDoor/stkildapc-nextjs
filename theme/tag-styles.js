@@ -10,7 +10,7 @@ export default {
     fontSize: 32,
     fontFamily: 'heading',
     fontWeight: 'bold',
-    color: 'text',
+    color: 'primary',
     mt: 4,
     mb: 2
   },
@@ -18,13 +18,13 @@ export default {
     fontSize: 48,
     fontFamily: 'heading',
     fontWeight: 'body',
-    color: 'text',
+    color: 'primary',
     textTransform: 'uppercase',
     letterSpacing: '8px'
   },
   h3: {
     textTransform: 'uppercase',
-    color: 'text',
+    color: 'primary',
     fontSize: 24,
     fontFamily: 'heading',
     fontWeight: 'heading',

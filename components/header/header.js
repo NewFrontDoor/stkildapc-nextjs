@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {jsx} from 'theme-ui';
 import Link from '../link';
-import {ReactComponent as LogoSVG} from '../../public/logogeneric.svg';
+import {ReactComponent as LogoSVG} from '../../public/Landscape_Logo.svg';
 import Navigation from './navigation';
 
 const navSx = {

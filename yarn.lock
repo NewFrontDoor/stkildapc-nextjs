@@ -13056,6 +13056,16 @@ typeface-abel@^0.0.72:
   resolved "https://registry.yarnpkg.com/typeface-abel/-/typeface-abel-0.0.72.tgz#dd7aa525b3f430ff8fc6acb31610d95ead1c7d46"
   integrity sha512-9DVbADqgmgEsMBomlXnNJwii6kQtEeF1XODoO70bKwfpfhr0W6raH8V2N5UIRh+IUuglHVStFC4kcoOAvgG5dA==
 
+typeface-lato@^0.0.75:
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/typeface-lato/-/typeface-lato-0.0.75.tgz#8aa11c5611dc38416837c089b265a2abd1f7dd31"
+  integrity sha512-iA5uJD4PSTyIE4BDiSOexQeXkDkiJuX4Hu3wh3saJ06EB2TvJayab1Lbbmqq2je/LQv7KCQZHZmC0k4hedd8sw==
+
+typeface-open-sans@^0.0.75:
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.75.tgz#20d0c330f14c0c40463c334adbedd6005389abe4"
+  integrity sha512-0lLmB7pfj113OP4T78SbpSmC4OCdFQ0vUxdSXQccsSb6qF76F92iEuC/DghFgmPswTyidk8+Hwf+PS/htiJoRQ==
+
 typeface-vollkorn@^0.0.72:
   version "0.0.72"
   resolved "https://registry.yarnpkg.com/typeface-vollkorn/-/typeface-vollkorn-0.0.72.tgz#eab29df42e6ae5ab96ff4a062f071ad439c27060"

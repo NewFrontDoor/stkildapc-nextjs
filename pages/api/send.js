@@ -1,7 +1,7 @@
 const sgMail = require('@sendgrid/mail');
 
 export default async function(req, res) {
-  sgMail.setApiKey(process.env.XRDS_SENDGRID);
+  sgMail.setApiKey(process.env.STKILDA_SENDGRID);
 
   const {targetEmail, message} = req.body;
 
@@ -17,14 +17,14 @@ export default async function(req, res) {
     .join('');
 
   const emailText = `
-    Hi Crossroads Welcomers!\nA new Visitor form submission has arrived. Please see the details below.\n ${JSON.stringify(
+    Hi Luke!\nA new form submission has arrived. Please see the details below.\n ${JSON.stringify(
       message
     )}
     `;
 
   const emailBody = `
-    <p>Hi Crossroads Welcomers!</p>
-    <p>A new Visitor form submission has arrived. Please see the details below.</p>
+    <p>Hi Luke!</p>
+    <p>A new form submission has arrived. Please see the details below.</p>
     <table>
     ${table}
     </table>
@@ -33,7 +33,7 @@ export default async function(req, res) {
   const content = {
     to: targetEmail,
     from: message.email,
-    subject: `[no-reply] New Visitor form submission from ${message.name}`,
+    subject: `[no-reply] New form submission from ${message.name}`,
     text: emailText,
     html: `<p>${emailBody}</p>`
   };

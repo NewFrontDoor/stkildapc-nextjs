@@ -1,10 +1,9 @@
 import sanity from '@sanity/client';
-import ky from 'ky-universal';
 
 const client = sanity({
-  projectId: 'woz73k85',
+  projectId: 'o0yv210b',
   dataset: 'production',
-  token: process.env.XRDS_SANITY
+  token: process.env.STKILDA_SANITY
 });
 
 export default async (req, res) => {

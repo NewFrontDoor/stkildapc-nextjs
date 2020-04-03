@@ -8,13 +8,14 @@ import Layout from '../components/layout';
 import StKilda from '../public/stkilda.jpg';
 import {mainQuery, menuQuery, footerQuery} from '../lib/queries';
 import {fetchQuery} from '../lib/sanity';
+import urlFor from '../lib/sanityImg';
 
 const Home = props => {
   const {mainData} = props;
   const {heading, content, services} = mainData;
   return (
     <Layout {...props}>
-      <div sx={{background: `url(${StKilda})`}}>
+      <div sx={{background: `url(${urlFor(mainData.mainImage)})`, backgroundSize: 'cover'}}>
         <Grid
           sx={{
             gridTemplateColumns: '1fr 3fr 1fr',

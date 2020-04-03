@@ -117,7 +117,7 @@ const FormSerializer = ({node}) => {
       {...node}
       validationFn={values => validation(values, node)}
       blockText={val => <BlockText blocks={val} />}
-      submitForm={() => {}}
+      submitForm={values => submitForm(values)}
     />
   );
 };

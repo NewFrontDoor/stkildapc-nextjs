@@ -55,13 +55,13 @@ const Navigation = ({navlinks}) => {
           return link.childpages.length <= 1 ? (
             <Navlink
               key={link.text}
-              link={link.childpages[0].slug.current}
+              link={link.childpages[0].slug?.current ?? link.childpages[0].url}
               text={link.text}
             />
           ) : (
             <Navparent
               key={link.text}
-              link={link.childpages[0].slug.current}
+              link={link.childpages[0].slug?.current ?? link.childpages[0].url}
               text={link.text}
               childpages={link.childpages}
             />

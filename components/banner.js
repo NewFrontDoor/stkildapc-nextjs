@@ -3,17 +3,17 @@ import React, {useState, useEffect} from 'react';
 import {jsx, ThemeProvider, Close} from 'theme-ui';
 import BlockText from './block-text-serializer';
 
-const Banner = ({header, body}) => {
+const Banner = ({header, body, id}) => {
   const [hidden, setHidden] = useState(false);
 
   const handleClose = () => {
-    sessionStorage.setItem('bannerVisible', false);
+    sessionStorage.setItem(id, false);
     setHidden(true);
   };
 
   useEffect(() => {
-    setHidden(sessionStorage.getItem('bannerVisible'));
-  }, []);
+    setHidden(sessionStorage.getItem(id));
+  }, [id]);
 
   return (
     !hidden && (

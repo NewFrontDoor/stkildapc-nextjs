@@ -62,7 +62,17 @@ AnchorSerializer.propTypes = {
 };
 
 const ImageSerializer = ({node}) => {
-  return <img src={urlFor(node).url()} />;
+  const align =
+    node.wrapping === 'float'
+      ? {float: node.alignment, padding: '20px'}
+      : {display: 'block', margin: node.alignment === 'center' ? 'auto' : 0};
+
+  return (
+    <img
+      sx={{...align, width: `${node.width || '100%'}%`}}
+      src={urlFor(node).url()}
+    />
+  );
 };
 
 ImageSerializer.propTypes = {

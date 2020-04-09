@@ -34,14 +34,14 @@ export default {
     textDecoration: 'none',
     padding: '11px 23px',
     border: '2px solid',
-    borderColor: 'alt',
-    color: 'alt',
+    borderColor: 'white',
+    color: 'white',
     display: 'inline-block',
     width: 'fit-content',
     ':hover': {
-      borderColor: 'alt',
-      backgroundColor: 'alt',
-      color: 'black'
+      borderColor: 'white',
+      backgroundColor: 'white',
+      color: 'alt'
     }
   },
   warning: {

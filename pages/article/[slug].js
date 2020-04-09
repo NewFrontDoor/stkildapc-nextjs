@@ -9,7 +9,6 @@ import {menuQuery, pageQuery, defaultQuery, footerQuery} from '../../lib/queries
 
 const Page = props => {
   const {menuData, mainData, defaultData, footerData} = props;
-  console.log(props)
 
   return (
     <Layout {...props}>

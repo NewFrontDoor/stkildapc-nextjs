@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import Header from './header/header';
 import Footer from './footer/footer';
 import Head from 'next/head';
+import {Banner} from './banner';
 
 const Layout = ({menuData, mainData, defaultData, footerData, children}) => {
   return (
@@ -42,6 +43,7 @@ const Layout = ({menuData, mainData, defaultData, footerData, children}) => {
         />
         <meta name="theme-color" content="#ffffff" />
       </Head>
+      {defaultData.frontbanner && <Banner {...defaultData.frontbanner} />}
       <Header navlinks={menuData.menuitems} />
       {children}
       <Footer data={footerData} />

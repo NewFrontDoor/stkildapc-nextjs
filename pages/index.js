@@ -6,7 +6,7 @@ import HomeGallery from '../components/home-gallery';
 import Parallax from '../components/parallax';
 import Layout from '../components/layout';
 import GhostButton from '../components/ghost-button';
-import {mainQuery, menuQuery, footerQuery} from '../lib/queries';
+import {mainQuery, menuQuery, footerQuery, defaultQuery} from '../lib/queries';
 import {fetchQuery} from '../lib/sanity';
 import urlFor from '../lib/sanityImg';
 
@@ -118,6 +118,7 @@ Home.getInitialProps = async () => {
     `{
       'menuData': ${menuQuery},
       'mainData': ${mainQuery},
+      "defaultData": ${defaultQuery},
       'footerData': ${footerQuery}
     }`
   );

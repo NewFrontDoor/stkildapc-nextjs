@@ -1,10 +1,36 @@
 /** @jsx jsx */
 import {jsx, Styled} from 'theme-ui';
 import React from 'react';
-import {FaFacebookF, FaInstagram, FaYoutube, FaEnvelope} from 'react-icons/fa';
-import {IconContext} from 'react-icons';
+import {
+  FaFacebookSquare,
+  FaInstagram,
+  FaYoutube,
+  FaEnvelope,
+  FaVimeo,
+  FaGithub,
+  FaTwitterSquare,
+  FaSpotify,
+  FaLinkedin,
+  FaSnapchatSquare,
+  FaPhoneSquare
+} from 'react-icons/fa';
+import {IconContext, icons} from 'react-icons';
 import Navlink from '../header/nav-link';
 import Link from '../link';
+
+const socialIcons = {
+  facebook: <FaFacebookSquare />,
+  instagram: <FaInstagram />,
+  youtube: <FaYoutube />,
+  vimeo: <FaVimeo />,
+  twitter: <FaTwitterSquare />,
+  github: <FaGithub />,
+  spotify: <FaSpotify />,
+  linkedin: <FaLinkedin />,
+  snapchat: <FaSnapchatSquare />,
+  mailto: <FaEnvelope />,
+  tel: <FaPhoneSquare />
+};
 
 const footerInner = {
   maxWidth: '1170px',
@@ -25,7 +51,7 @@ const list = {
   }
 };
 
-const Footer = ({data: {footermenu, tagline}}) => {
+const Footer = ({data: {footermenu, tagline, sociallinks}}) => {
   return (
     <div sx={{padding: '2rem 0'}}>
       <div sx={footerInner}>
@@ -39,14 +65,28 @@ const Footer = ({data: {footermenu, tagline}}) => {
         </h4>
         <ul sx={list}>
           {footermenu.map(item => (
-            <Navlink key={item._key} link={item.slug.current} text={item.text} />
+            <Navlink
+              key={item._key}
+              link={item.slug.current}
+              text={item.text}
+            />
           ))}
         </ul>
         <div sx={{padding: '20px 0'}}>
           <IconContext.Provider
             value={{size: '1.8em', style: {margin: '0 8px'}}}
           >
-            <FaFacebookF /> <FaInstagram /> <FaYoutube /> <FaEnvelope />
+            {sociallinks.map(item => {
+              const type = Object.keys(socialIcons).filter(type =>
+                item.includes(type)
+              )[0];
+
+              return (
+                <a key={item} href={item} sx={{color: 'black', ':hover': {color: 'accent'}}}>
+                  {socialIcons[type]}
+                </a>
+              );
+            })}
           </IconContext.Provider>
         </div>
         <p>© 2019 New Front Door</p>

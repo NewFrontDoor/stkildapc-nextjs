@@ -8,6 +8,7 @@ import Head from 'next/head';
 import {Banner} from './banner';
 
 const Layout = ({menuData, mainData, defaultData, footerData, children}) => {
+  console.log(footerData)
   return (
     <div>
       <Head>

@@ -11,7 +11,8 @@ import {
   pageQuery,
   menuQuery,
   sermonQuery,
-  defaultQuery
+  defaultQuery,
+  footerQuery
 } from '../../lib/queries';
 import {jsx, Styled, Grid} from 'theme-ui';
 
@@ -23,33 +24,52 @@ const fields = [
   {heading: 'Date Preached', key: 'preachedDate', searchable: false}
 ];
 
-const AllSermons = ({pageData, menuData, sermonData, defaultData}) => {
+const AllSermons = ({
+  pageData,
+  menuData,
+  sermonData,
+  defaultData,
+  footerData
+}) => {
   const [sermonsSubset, setSubset] = useState(sermonData);
 
   return (
-    <Layout wide menuData={menuData} mainData={pageData} defaultData={defaultData}>
-      <HomeBlock blocks={pageData.body} />
-      <Grid columns={2}>
-        <SermonFilter
-          dataCollection={sermonData}
-          setSubset={setSubset}
-          fields={fields}
-          debounceTime={500}
-          labels={{
-            searchbox: 'Filter sermons:',
-            checkbox: `use 'inclusive' mode`
-          }}
+    <Layout
+      menuData={menuData}
+      mainData={pageData}
+      defaultData={defaultData}
+      footerData={footerData}
+    >
+      <article
+        sx={{
+          maxWidth: '1200px',
+          margin: 'auto',
+          padding: '15px'
+        }}
+      >
+        <HomeBlock blocks={pageData.body} />
+        <Grid columns={2}>
+          <SermonFilter
+            dataCollection={sermonData}
+            setSubset={setSubset}
+            fields={fields}
+            debounceTime={500}
+            labels={{
+              searchbox: 'Filter sermons:',
+              checkbox: `use 'inclusive' mode`
+            }}
+          />
+        </Grid>
+        <SermonTable
+          sermons={sermonsSubset}
+          headers={fields}
+          columnHide={[5]}
+          sermonDirectory="sermons"
+          renderLink={(directory, slug, title) => (
+            <Link link={`${directory}/${slug}`}>{title}</Link>
+          )}
         />
-      </Grid>
-      <SermonTable
-        sermons={sermonsSubset}
-        headers={fields}
-        columnHide={[5]}
-        sermonDirectory="sermons"
-        renderLink={(directory, slug, title) => (
-          <Link link={`${directory}/${slug}`}>{title}</Link>
-        )}
-      />
+      </article>
     </Layout>
   );
 };
@@ -66,7 +86,8 @@ AllSermons.getInitialProps = async () => {
         "menuData": ${menuQuery},
         "pageData": ${pageQuery('all-sermons')},
         "sermonData": ${sermonQuery},
-        "defaultData": ${defaultQuery}
+        "defaultData": ${defaultQuery},
+        "footerData": ${footerQuery}
     }`
   );
   return results;

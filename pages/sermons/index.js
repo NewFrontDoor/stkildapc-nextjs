@@ -12,7 +12,8 @@ import {
   menuQuery,
   sermonQuery,
   seriesQuery,
-  defaultQuery
+  defaultQuery,
+  footerQuery
 } from '../../lib/queries';
 
 const headers = [
@@ -28,14 +29,16 @@ const headers = [
   }
 ];
 
-const Sermons = ({mainData, sermonData, seriesData, menuData, defaultData}) => {
+const Sermons = ({mainData, sermonData, seriesData, menuData, defaultData, footerData}) => {
   const sermonsSubset = sermonData.slice(0, 10);
+  console.log(footerData);
   return (
     <Layout
       wide
       menuData={menuData}
       mainData={mainData}
       defaultData={defaultData}
+      footerData={footerData}
     >
       <SanityBlock blocks={mainData.body} />
       <SermonGrid
@@ -61,6 +64,7 @@ Sermons.propTypes = {
   sermonData: PropTypes.array.isRequired,
   seriesData: PropTypes.array,
   menuData: PropTypes.object.isRequired,
+  footerData: PropTypes.object.isRequired,
   defaultData: PropTypes.object
 };
 
@@ -71,7 +75,8 @@ Sermons.getInitialProps = async () => {
         "mainData": ${pageQuery('sermons')},
         "sermonData": ${sermonQuery},
         "seriesData": ${seriesQuery},
-        "defaultData": ${defaultQuery}
+        "defaultData": ${defaultQuery},
+        "footerData": ${footerQuery}
     }`
   );
   return results;

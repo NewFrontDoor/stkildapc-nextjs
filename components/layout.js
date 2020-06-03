@@ -7,6 +7,8 @@ import Footer from './footer/footer';
 import Head from 'next/head';
 import {Banner} from './banner';
 
+import { GA_TRACKING_ID } from '../lib/google-analytics'
+
 const Layout = ({menuData, mainData, defaultData, footerData, children}) => {
   console.log(footerData)
   return (
@@ -43,6 +45,22 @@ const Layout = ({menuData, mainData, defaultData, footerData, children}) => {
           content="/favicons/browserconfig.xml"
         />
         <meta name="theme-color" content="#ffffff" />
+        <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+              page_path: window.location.pathname,
+            });
+          `,
+            }}
+          />
       </Head>
       {defaultData.frontbanner && <Banner {...defaultData.frontbanner} />}
       <Header navlinks={menuData.menuitems} />

@@ -3,7 +3,8 @@
   "version": 2,
   "env": {
     "STKILDA_SENDGRID": "@stkilda_sendgrid",
-    "STKILDA_SANITY": "@stkilda_sanity"
+    "STKILDA_SANITY": "@stkilda_sanity",
+    "STKILDA_EMAIL": "@stkilda_email"
   },
   "build": {
     "env": {

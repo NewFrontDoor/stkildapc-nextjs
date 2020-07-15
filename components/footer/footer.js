@@ -51,7 +51,7 @@ const list = {
   }
 };
 
-const Footer = ({data: {footermenu, tagline, sociallinks}}) => {
+const Footer = ({data: {footermenu, tagline, sociallinks, copyright}}) => {
   return (
     <div sx={{padding: '2rem 0'}}>
       <div sx={footerInner}>
@@ -89,7 +89,7 @@ const Footer = ({data: {footermenu, tagline, sociallinks}}) => {
             })}
           </IconContext.Provider>
         </div>
-        <p>© 2019 New Front Door</p>
+        <p>{copyright}</p>
       </div>
     </div>
   );

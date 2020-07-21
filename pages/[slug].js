@@ -10,11 +10,13 @@ import {menuQuery, pageQuery, defaultQuery, footerQuery} from '../lib/queries';
 const Page = props => {
   const {menuData, mainData, defaultData, footerData} = props;
 
+  const hasGrid = element => element._type === 'gridblock';
+
   return (
     <Layout {...props}>
       <article
         sx={{
-          maxWidth: '700px',
+          maxWidth: mainData.body.some(hasGrid) ? '1200px' : '700px',
           margin: 'auto',
           padding: '15px'
         }}

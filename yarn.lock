@@ -1506,10 +1506,10 @@
     react-icons "^3.7.0"
     react-range "^1.4.1"
 
-"@newfrontdoor/form@^0.6.2":
-  version "0.6.2"
-  resolved "https://registry.yarnpkg.com/@newfrontdoor/form/-/form-0.6.2.tgz#42b56ad90fdffa10a7648b260018850df71e82ac"
-  integrity sha512-LsQlAcwjI3abR3lMy3DLleiYNV+Lw8JGFUMn8B6KQYm/AyMtlVxSwSbD0RYKj9tq/U7u5Q3EzdkPhCkL5gQFhQ==
+"@newfrontdoor/form@^0.7.2":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@newfrontdoor/form/-/form-0.7.2.tgz#c33a84d50a405da66596ae882cf5788443745080"
+  integrity sha512-8OHUcAzBcvONq00/mSnNse2rau4C0hYSyoW63ptDuOSzdIVSZ4XYM73L+TdDfmK5B/Is4FEM4zQvksqQbvFE0g==
   dependencies:
     final-form "^4.18.7"
     final-form-arrays "^3.0.2"

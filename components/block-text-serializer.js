@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import React from 'react';
 import BlockContent from '@sanity/block-content-to-react';
-import {Styled, Text, jsx, Link as TULink} from 'theme-ui';
+import {Box, Styled, Text, jsx, Link as TULink} from 'theme-ui';
 import Link from './link';
 import urlFor from '../lib/sanityImg';
 import {Form, validation} from '@newfrontdoor/form';
@@ -128,6 +128,16 @@ const FormSerializer = ({node}) => {
       validationFn={values => validation(values, node)}
       blockText={val => <BlockText blocks={val} />}
       submitForm={values => submitForm(values)}
+      success={
+        <Box as="form" id={node.id}>
+          <fieldset>
+            <Styled.p>
+              {node.onSuccess ||
+                'Thankyou for your submission. We will get back to you as soon as we can.'}
+            </Styled.p>
+          </fieldset>
+        </Box>
+      }
     />
   );
 };

@@ -10,7 +10,6 @@ import {Banner} from './banner';
 import { GA_TRACKING_ID } from '../lib/google-analytics'
 
 const Layout = ({menuData, mainData, defaultData, footerData, children}) => {
-  console.log(footerData)
   return (
     <div>
       <Head>

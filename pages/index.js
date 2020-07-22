@@ -10,11 +10,11 @@ import {mainQuery, menuQuery, footerQuery, defaultQuery} from '../lib/queries';
 import {fetchQuery} from '../lib/sanity';
 import urlFor from '../lib/sanityImg';
 
-const Home = props => {
-  const {mainData} = props;
+const Home = ({data}) => {
+  const {mainData} = data;
   const {heading, content, services} = mainData;
   return (
-    <Layout {...props}>
+    <Layout {...data}>
       <div
         sx={{
           background: `url(${urlFor(mainData.mainImage)}) `,
@@ -113,8 +113,8 @@ Home.propTypes = {
   })
 };
 
-Home.getInitialProps = async () => {
-  const results = await fetchQuery(
+export async function getServerSideProps() {
+  const data = await fetchQuery(
     `{
       'menuData': ${menuQuery},
       'mainData': ${mainQuery},
@@ -122,7 +122,7 @@ Home.getInitialProps = async () => {
       'footerData': ${footerQuery}
     }`
   );
-  return results;
-};
+  return { props: { data } };
+}
 
 export default Home;

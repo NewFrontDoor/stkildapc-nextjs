@@ -36,7 +36,7 @@ Page.propTypes = {
 export async function getServerSideProps(context) {
   const data = await fetchQuery(
     `{
-        "mainData": ${pageQuery(context.query.slug)},
+        "mainData": ${pageQuery(context.params.slug)},
         "menuData": ${menuQuery},
         "defaultData": ${defaultQuery},
         "footerData": ${footerQuery}

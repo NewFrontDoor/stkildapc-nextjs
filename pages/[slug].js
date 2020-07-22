@@ -33,14 +33,15 @@ Page.propTypes = {
   menuData: PropTypes.object.isRequired
 };
 
-export async function getServerSideProps({query}) {
+export async function getServerSideProps(context) {
   const data = await fetchQuery(
     `{
-        "mainData": ${pageQuery(query.slug)},
+        "mainData": ${pageQuery(context.query.slug)},
         "menuData": ${menuQuery},
         "defaultData": ${defaultQuery},
         "footerData": ${footerQuery}
-    }`
+    }`,
+    context.preview
   );
   return {props: {data}};
 }

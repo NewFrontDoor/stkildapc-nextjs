@@ -25,11 +25,7 @@ const fields = [
 ];
 
 const AllSermons = ({
-  pageData,
-  menuData,
-  sermonData,
-  defaultData,
-  footerData
+  data: {pageData, menuData, sermonData, defaultData, footerData}
 }) => {
   const [sermonsSubset, setSubset] = useState(sermonData);
 
@@ -80,8 +76,8 @@ AllSermons.propTypes = {
   sermonData: PropTypes.array
 };
 
-AllSermons.getInitialProps = async () => {
-  const results = await fetchQuery(
+export async function getServerSideProps() {
+  const data = await fetchQuery(
     `{
         "menuData": ${menuQuery},
         "pageData": ${pageQuery('all-sermons')},
@@ -90,7 +86,9 @@ AllSermons.getInitialProps = async () => {
         "footerData": ${footerQuery}
     }`
   );
-  return results;
-};
+  return {props: {data}};
+}
+
+
 
 export default AllSermons;

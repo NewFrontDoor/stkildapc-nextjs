@@ -5,7 +5,12 @@ import {StyledPlayer} from '@newfrontdoor/audio-player';
 import Layout from '../../components/layout';
 import Link from '../../components/link';
 import {fetchQuery} from '../../lib/sanity';
-import {mainQuery, menuQuery, defaultQuery, sermonSlugQuery} from '../../lib/queries';
+import {
+  mainQuery,
+  menuQuery,
+  defaultQuery,
+  sermonSlugQuery
+} from '../../lib/queries';
 
 const main = {
   maxWidth: '700px',
@@ -68,7 +73,7 @@ const returnMonth = number => {
   }
 };
 
-const SermonPage = ({sermonData, menuData, mainData, defaultData}) => {
+const SermonPage = ({data: {sermonData, menuData, mainData, defaultData}}) => {
   const datePreached = new Date(sermonData.preachedDate);
 
   return (
@@ -110,8 +115,8 @@ SermonPage.propTypes = {
   sermonData: PropTypes.array
 };
 
-SermonPage.getInitialProps = async ({query}) => {
-  const results = await fetchQuery(
+export async function getServerSideProps({query}) {
+  const data = await fetchQuery(
     `{
         "mainData": ${mainQuery},
         "menuData": ${menuQuery},
@@ -119,7 +124,7 @@ SermonPage.getInitialProps = async ({query}) => {
         "defaultData": ${defaultQuery}
     }`
   );
-  return results;
-};
+  return {props: {data}};
+}
 
 export default SermonPage;

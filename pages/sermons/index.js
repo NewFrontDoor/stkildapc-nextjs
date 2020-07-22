@@ -29,9 +29,10 @@ const headers = [
   }
 ];
 
-const Sermons = ({mainData, sermonData, seriesData, menuData, defaultData, footerData}) => {
+const Sermons = ({
+  data: {mainData, sermonData, seriesData, menuData, defaultData, footerData}
+}) => {
   const sermonsSubset = sermonData.slice(0, 10);
-  console.log(footerData);
   return (
     <Layout
       wide
@@ -68,8 +69,8 @@ Sermons.propTypes = {
   defaultData: PropTypes.object
 };
 
-Sermons.getInitialProps = async () => {
-  const results = await fetchQuery(
+export async function getServerSideProps() {
+  const data = await fetchQuery(
     `{
         "menuData": ${menuQuery},
         "mainData": ${pageQuery('sermons')},
@@ -79,7 +80,9 @@ Sermons.getInitialProps = async () => {
         "footerData": ${footerQuery}
     }`
   );
-  return results;
-};
+  return {props: {data}};
+}
+
+
 
 export default Sermons;

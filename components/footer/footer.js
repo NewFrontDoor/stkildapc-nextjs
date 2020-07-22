@@ -82,7 +82,11 @@ const Footer = ({data: {footermenu, tagline, sociallinks, copyright}}) => {
               )[0];
 
               return (
-                <a key={item} href={item} sx={{color: 'black', ':hover': {color: 'accent'}}}>
+                <a
+                  key={item}
+                  href={item}
+                  sx={{color: 'black', ':hover': {color: 'accent'}}}
+                >
                   {socialIcons[type]}
                 </a>
               );

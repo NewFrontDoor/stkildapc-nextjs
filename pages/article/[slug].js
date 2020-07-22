@@ -7,11 +7,11 @@ import SanityBlock from '../../components/block-text-serializer';
 import Layout from '../../components/layout';
 import {menuQuery, pageQuery, defaultQuery, footerQuery} from '../../lib/queries';
 
-const Page = props => {
-  const {menuData, mainData, defaultData, footerData} = props;
+const Page = ({data}) => {
+  const {menuData, mainData, defaultData, footerData} = data;
 
   return (
-    <Layout {...props}>
+    <Layout {...data}>
       <article
         sx={{
           maxWidth: '700px',
@@ -31,8 +31,8 @@ Page.propTypes = {
   menuData: PropTypes.object.isRequired
 };
 
-Page.getInitialProps = async ({query}) => {
-  const results = await fetchQuery(
+export async function getServerSideProps({query}) {
+  const data = await fetchQuery(
     `{
         "mainData": ${pageQuery(query.slug)},
         "menuData": ${menuQuery},
@@ -40,7 +40,7 @@ Page.getInitialProps = async ({query}) => {
         "footerData": ${footerQuery}
     }`
   );
-  return results;
+  return {props: {data}};
 };
 
 export default Page;

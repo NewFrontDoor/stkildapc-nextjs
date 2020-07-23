@@ -8,6 +8,7 @@ export default async function(req, res) {
   const {message} = req.body;
 
   const config = await fetchQuery(emailQuery);
+  console.log(config);
 
   const table = Object.entries(message)
     .map(
@@ -41,6 +42,8 @@ export default async function(req, res) {
     text: emailText,
     html: `<p>${emailBody}</p>`
   };
+
+  console.log(content);
 
   try {
     await sgMail.send(content);

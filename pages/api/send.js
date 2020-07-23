@@ -1,9 +1,13 @@
+import {emailQuery} from '../../lib/queries';
+import {fetchQuery} from '../../lib/sanity';
 const sgMail = require('@sendgrid/mail');
 
 export default async function(req, res) {
   sgMail.setApiKey(process.env.STKILDA_SENDGRID);
 
-  const {targetEmail, message} = req.body;
+  const {message} = req.body;
+
+  const config = await fetchQuery(emailQuery);
 
   const table = Object.entries(message)
     .map(
@@ -31,7 +35,7 @@ export default async function(req, res) {
     `;
 
   const content = {
-    to: targetEmail,
+    to: config.email,
     from: message.email,
     subject: `[no-reply] New form submission from ${message.name}`,
     text: emailText,

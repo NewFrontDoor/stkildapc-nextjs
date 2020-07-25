@@ -1,5 +1,6 @@
 import {previewQuery} from '../../lib/sanity';
 import {pageQuery} from '../../lib/queries';
+import {inspect} from 'util';
 
 async function testSlug(slug) {
   return previewQuery(
@@ -12,9 +13,8 @@ async function testSlug(slug) {
 export default async function preview(request, response) {
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
-  console.log(request);
-  console.log(request.query);
-  console.log(process.env.SANITY_PREVIEW_SECRET);
+  console.log(inspect(request, {getters: true, depth: 2}))
+
   if (
     request.query.secret !== process.env.SANITY_PREVIEW_SECRET ||
     !request.query.slug

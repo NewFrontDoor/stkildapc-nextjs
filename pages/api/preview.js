@@ -13,17 +13,17 @@ async function testSlug(slug) {
 export default async function preview(req, res) {
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
-  console.log(inspect(req, {getters: true, depth: 2}))
+  const val = await req;
 
   if (
-    req.query.secret !== process.env.SANITY_PREVIEW_SECRET ||
-    !req.query.slug
+    val.query.secret !== process.env.SANITY_PREVIEW_SECRET ||
+    !val.query.slug
   ) {
     return res.status(401).json({message: 'Invalid token'});
   }
 
   // Fetch the headless CMS to check if the provided `slug` exists
-  const post = await testSlug(req.query.slug);
+  const post = await testSlug(val.query.slug);
 
   // If the slug doesn't exist prevent preview mode from being enabled
   if (!post) {

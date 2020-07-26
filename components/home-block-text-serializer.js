@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import React from 'react';
 import BlockContent from '@sanity/block-content-to-react';
-import styled from '@emotion/styled';
 import {Styled, jsx} from 'theme-ui';
 import {Link} from 'react-router-dom';
 import Form from './form';
@@ -10,9 +9,7 @@ import Card from './card-grid-item';
 import HorizontalCard from './horizontal-card-grid-item';
 import Overlay from './overlay-grid-item';
 
-const BlockContentInt = styled(BlockContent)(`line-height: 26px;`);
-
-const getHeading = children => ({
+const getHeading = (children) => ({
   h1: <Styled.h1>{children}</Styled.h1>,
   h2: <Styled.h2>{children}</Styled.h2>,
   h3: <Styled.h3>{children}</Styled.h3>,
@@ -22,21 +19,21 @@ const getHeading = children => ({
   normal: <Styled.p>{children}</Styled.p>
 });
 
-const BlockRenderer = props => {
+const BlockRenderer = (props) => {
   const style = props.node.style || 'normal';
 
-    return getHeading(props.children)[style];
+  return getHeading(props.children)[style];
 };
 
-function CustomStyleSerializer({children}) {
+const CustomStyleSerializer = ({children}) => {
   return <Styled.p>{children}</Styled.p>;
-}
+};
 
-function AnchorSerializer({children, mark}) {
+const AnchorSerializer = ({children, mark}) => {
   return <span id={mark.id}>{children}</span>;
-}
+};
 
-function GridBlockSerializer({node: {blocks, columns, style}}) {
+const GridBlockSerializer = ({node: {blocks, columns, style}}) => {
   return (
     <GridBlock
       items={blocks}
@@ -62,32 +59,32 @@ function GridBlockSerializer({node: {blocks, columns, style}}) {
       }
     />
   );
-}
+};
 
-function FormSerializer({node: {header, id, body, fields}}) {
+const FormSerializer = ({node: {header, id, body, fields}}) => {
   return <Form header={header} id={id} description={body} fields={fields} />;
-}
+};
 
-function InternalLinkSerializer({mark, children}) {
+const InternalLinkSerializer = ({mark, children}) => {
   return <Link to={`/${mark.slug}`}>{children}</Link>;
-}
+};
 
-export default function HomeBlock({blocks}) {
-  return (
-    <BlockContentInt
-      blocks={blocks}
-      serializers={{
-        types: {
-          block: BlockRenderer,
-          p: CustomStyleSerializer,
-          form: FormSerializer,
-          gridblock: GridBlockSerializer
-        },
-        marks: {
-          anchor: AnchorSerializer,
-          internalLink: InternalLinkSerializer
-        }
-      }}
-    />
-  );
-}
+const HomeBlock = ({blocks}) => (
+  <BlockContent
+    blocks={blocks}
+    serializers={{
+      types: {
+        block: BlockRenderer,
+        p: CustomStyleSerializer,
+        form: FormSerializer,
+        gridblock: GridBlockSerializer
+      },
+      marks: {
+        anchor: AnchorSerializer,
+        internalLink: InternalLinkSerializer
+      }
+    }}
+  />
+);
+
+export default HomeBlock;

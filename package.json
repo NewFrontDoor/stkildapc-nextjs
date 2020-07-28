@@ -11,6 +11,7 @@
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "@newfrontdoor/audio-player": "0.1.8",
+    "@newfrontdoor/footer": "^1.1.0",
     "@newfrontdoor/form": "^0.7.3",
     "@newfrontdoor/search": "^0.3.1",
     "@newfrontdoor/sermon": "^0.5.6",

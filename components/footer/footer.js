@@ -17,6 +17,7 @@ import {
 import {IconContext, icons} from 'react-icons';
 import Navlink from '../header/nav-link';
 import Link from '../link';
+import {Slimline} from '@newfrontdoor/footer';
 
 const socialIcons = {
   facebook: <FaFacebookSquare />,
@@ -52,7 +53,7 @@ const list = {
 };
 
 const Footer = ({data: {footermenu, tagline, sociallinks, copyright}}) => {
-  return (
+  return [
     <div sx={{padding: '2rem 0'}}>
       <div sx={footerInner}>
         <h4
@@ -64,7 +65,7 @@ const Footer = ({data: {footermenu, tagline, sociallinks, copyright}}) => {
           {tagline}
         </h4>
         <ul sx={list}>
-          {footermenu.map(item => (
+          {footermenu.map((item) => (
             <Navlink
               key={item._key}
               link={item.slug.current}
@@ -76,8 +77,8 @@ const Footer = ({data: {footermenu, tagline, sociallinks, copyright}}) => {
           <IconContext.Provider
             value={{size: '1.8em', style: {margin: '0 8px'}}}
           >
-            {sociallinks.map(item => {
-              const type = Object.keys(socialIcons).filter(type =>
+            {sociallinks.map((item) => {
+              const type = Object.keys(socialIcons).filter((type) =>
                 item.includes(type)
               )[0];
 
@@ -95,8 +96,9 @@ const Footer = ({data: {footermenu, tagline, sociallinks, copyright}}) => {
         </div>
         <p>{copyright}</p>
       </div>
-    </div>
-  );
+    </div>,
+    <Slimline />
+  ];
 };
 
 export default Footer;

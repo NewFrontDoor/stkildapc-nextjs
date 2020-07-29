@@ -1640,10 +1640,10 @@
     react-icons "^3.7.0"
     react-range "^1.4.1"
 
-"@newfrontdoor/footer@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@newfrontdoor/footer/-/footer-1.1.0.tgz#2ea16c8fb8188efe12fe1802bd8e085e150af3de"
-  integrity sha512-ytECqQsGCxTNSwMhDPMd06ql35fKnrHMXYPbKr7f+mukgqUOtScVZ97rHDrfku2rd+v3apALak5/99INDRn0Kg==
+"@newfrontdoor/footer@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@newfrontdoor/footer/-/footer-1.1.1.tgz#5eb3227e57756be70b95d5528e87fa9e943ab1cb"
+  integrity sha512-739PcoXpYwbIfEsfvrBqFqNT9bPm00oNPzfQ045QvdoH2iskrwyiGFsmklv9pu4rvfecvtQpJkbmpkwiKDWyiw==
   dependencies:
     react-icons "^3.10.0"
 

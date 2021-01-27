@@ -47,8 +47,8 @@ const Navigation = ({navlinks}) => {
         />
       </div>
       <nav sx={navSx(isOpen)} onClick={() => setOpen(false)}>
-        {navlinks.map(link => {
-          if (!link.childpages) {
+        {navlinks.map((link) => {
+          if (!link.childpages || link.childpages.length === 0) {
             return null;
           }
 

@@ -36,7 +36,7 @@ export default async function(req, res) {
 
   const content = {
     to: config.email,
-    from: message.email,
+    from: message.email ? message.email : 'support@newfrontdoor.org',
     subject: `[no-reply] New form submission from ${message.name}`,
     text: emailText,
     html: `<p>${emailBody}</p>`

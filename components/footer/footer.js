@@ -48,7 +48,8 @@ const list = {
   paddingTop: '60px',
   fontSize: '16px',
   li: {
-    display: 'inline-block'
+    display: 'inline-block',
+    padding: ['10px', '0']
   }
 };
 

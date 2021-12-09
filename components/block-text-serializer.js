@@ -147,7 +147,7 @@ FormSerializer.propTypes = {
 };
 
 const InternalLinkSerializer = ({mark, children}) => (
-  <Link link={mark.slug}>
+  <Link link={mark.pageType === "restrictedPage" ? `restricted/${mark.slug}` : mark.slug}>
     <Styled.a>{children}</Styled.a>
   </Link>
 );

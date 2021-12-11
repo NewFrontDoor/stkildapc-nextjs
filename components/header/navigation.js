@@ -22,7 +22,8 @@ const navSx = isOpen => ({
   flexDirection: [null, 'row'],
   justifyContent: [null, 'flex-end'],
   fontSize: ['30px', '16px'],
-  zIndex: [2, null]
+  zIndex: [2, null],
+  backgroundColor: ['rgba(255,255,255,0.9)', null]
 });
 
 const Navigation = ({navlinks}) => {
@@ -41,8 +42,8 @@ const Navigation = ({navlinks}) => {
           height={22.5}
           strokeWidth={2}
           rotate={0}
-          color="white"
-          borderRadius={0}
+          color="#00354e"
+          borderRadius={10}
           animationDuration={0.3}
         />
       </div>
@@ -55,13 +56,13 @@ const Navigation = ({navlinks}) => {
           return link.childpages.length <= 1 ? (
             <Navlink
               key={link.text}
-              link={link.childpages[0].slug?.current ?? link.childpages[0].url}
+              link={link.childpages[0].pageType === "restrictedPage" ? `restricted/${link.childpages[0].slug.current}` : link.childpages[0].slug?.current ?? link.childpages[0].url}
               text={link.text}
             />
           ) : (
             <Navparent
               key={link.text}
-              link={link.childpages[0].slug?.current ?? link.childpages[0].url}
+              link={link.childpages[0].pageType === "restrictedPage" ? `restricted/${link.childpages[0].slug.current}` : link.childpages[0].slug?.current ?? link.childpages[0].url}
               text={link.text}
               childpages={link.childpages}
             />

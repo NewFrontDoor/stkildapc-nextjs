@@ -7,7 +7,6 @@ import {ReactComponent as LogoSVG} from '../../public/Landscape_Logo.svg';
 import Navigation from './navigation';
 
 const navSx = {
-  width: '100vw',
   maxWidth: '1170px',
   padding: '0',
   minHeight: '2em',

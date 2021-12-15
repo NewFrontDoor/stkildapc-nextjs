@@ -5,11 +5,10 @@ import PropTypes from 'prop-types';
 import {fetchQuery} from '../../lib/sanity';
 import SanityBlock from '../../components/block-text-serializer';
 import Layout from '../../components/layout';
-import {menuQuery, pageQuery, defaultQuery, footerQuery} from '../../lib/queries';
+import {menuQuery, articleQuery, defaultQuery, footerQuery} from '../../lib/queries';
 
 const Page = ({data}) => {
   const {menuData, mainData, defaultData, footerData} = data;
-
   return (
     <Layout {...data}>
       <article
@@ -34,7 +33,7 @@ Page.propTypes = {
 export async function getServerSideProps(context) {
   const data = await fetchQuery(
     `{
-        "mainData": ${pageQuery(context.params.slug)},
+        "mainData": ${articleQuery(context.params.slug)},
         "menuData": ${menuQuery},
         "defaultData": ${defaultQuery},
         "footerData": ${footerQuery}

@@ -68,7 +68,6 @@ const Footer = ({data: {footermenu, tagline, sociallinks, copyright}}) => {
         <ul sx={list}>
           {footermenu.map((item) => (
             <>
-            {console.log(item)}
             <Navlink
               key={item._key}
               link={item.pageType === "restrictedPage" ? `restricted/${item.slug.current}` : item.slug.current}

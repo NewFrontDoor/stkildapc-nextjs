@@ -1,6 +1,6 @@
 import React from 'react';
 
-const crawlableRobotsTxt = `User-agent: *\nDisallow: /restricted/`;
+const crawlableRobotsTxt = `User-agent: *\nAllow: /`;
 
 const uncrawlableRobotsTxt = `User-agent: *\nDisallow: /`;
 

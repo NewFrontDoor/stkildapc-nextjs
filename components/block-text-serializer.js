@@ -69,7 +69,7 @@ const ImageSerializer = ({node}) => {
 
   return (
     <img
-      sx={{...align, width: `${node.width || '100%'}%`}}
+      sx={{...align, width: `${node.width || '100'}%`}}
       src={urlFor(node).url()}
     />
   );

@@ -67,11 +67,13 @@ const Footer = ({data: {footermenu, tagline, sociallinks, copyright}}) => {
         </h4>
         <ul sx={list}>
           {footermenu.map((item) => (
+            <>
             <Navlink
               key={item._key}
-              link={item.slug.current}
+              link={item.pageType === "restrictedPage" ? `restricted/${item.slug.current}` : item.slug.current}
               text={item.text}
             />
+            </>
           ))}
         </ul>
         <div sx={{padding: '20px 0'}}>

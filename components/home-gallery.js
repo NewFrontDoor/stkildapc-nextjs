@@ -13,7 +13,7 @@ const Grid = styled('div')`
   grid-template-columns: repeat(2, 1fr);
   padding-bottom: 30px;
   @media (min-width: 700px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 

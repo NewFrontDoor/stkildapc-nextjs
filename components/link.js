@@ -21,7 +21,7 @@ const pageLookup = link => {
     case 'all-sermons':
       return `/${link}`;
     default:
-      return '/[slug]';
+      return `/${link}`;
   }
 };
 

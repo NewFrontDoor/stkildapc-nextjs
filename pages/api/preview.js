@@ -13,9 +13,9 @@ async function testSlug(slug) {
 export default async function preview(req, res) {
   // Check the secret and next parameters
   // This secret should only be known to this API route and the CMS
-  console.log(req.url);
-  console.log(req.query.slug);
-  console.log(req.query);
+  // console.log(req.url);
+  // console.log(req.query.slug);
+  // console.log(req.query);
 
   if (
     req.query.secret !== process.env.SANITY_PREVIEW_SECRET ||

@@ -175,7 +175,7 @@ const InlineButtonSerializer = ({children, mark}) => {
   }
 
   return (
-    <Link link={link} sx={{marginLeft: '10px'}} link={link}>
+    <Link link={link} sx={{marginLeft: '10px'}}>
       {action}
     </Link>
   );

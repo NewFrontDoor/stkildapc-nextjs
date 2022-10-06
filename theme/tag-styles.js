@@ -55,7 +55,7 @@ export default {
     textDecoration: 'none',
     cursor: 'pointer',
     '&:visited': {
-      color: 'text'
+      color: 'accent'
     },
     '&:hover': {
       color: 'text'

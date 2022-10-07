@@ -70,7 +70,7 @@ const Footer = ({data: {footermenu, tagline, sociallinks, copyright}}) => {
             <>
             <Navlink
               key={item._key}
-              link={item.pageType === "restrictedPage" ? `restricted/${item.slug.current}` : item.slug?.current}
+              link={item.pageType === "restrictedPage" ? `restricted/${item.slug.current}` : item.pageType === "externalPage" ? item.url : item.slug?.current}
               text={item.text}
             />
             </>
